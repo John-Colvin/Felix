@@ -162,11 +162,11 @@ private:
 		string[string] ret;
 
 		foreach (kw, _; KeywordMap) {
-			ret[kw] = "lexKeyword";
+			ret[kw] = "this.lexKeyword";
 		}
 
 		foreach (op, _; OperatorMap) {
-			ret[op] = "lexOperator";
+			ret[op] = "this.lexOperator";
 		}
 
 		foreach (op, fun; BaseMap) {
