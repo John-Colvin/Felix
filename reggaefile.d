@@ -1,4 +1,5 @@
 import reggae;
+import reggae : options;
 
 enum unitThreadedSourceDirs = [
         "unit-threaded/subpackages/assertions/source",
@@ -25,4 +26,10 @@ alias test = link!(
     () => testObjs ~ unit_threaded
 );
 
-mixin build!(test, unit_threaded);
+enum sdfmt = Target("SDC/bin/sdfmt", "make -C SDC bin/sdfmt DMD=" ~ options.dCompiler);
+
+auto format() {
+    return Target.phony("format", "SDC/bin/sdfmt -i $in", sourcesToTargets!(Sources!(["src"])), sdfmt);
+}
+
+mixin build!(test, unit_threaded, sdfmt, format);
