@@ -1,5 +1,3 @@
 module interpreter;
 
-class InterpreterState {
-        
-}
+class InterpreterState {}

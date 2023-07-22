@@ -186,31 +186,33 @@ struct FelixLexer {
     mixin LexBaseImpl!(Token, BaseMap, KeywordMap, OperatorMap);
 
     // implementing this to override the implementation from `LexBaseImpl`
-	auto lexOperator(string s)() {
-		uint l = s.length;
-		uint begin = index - l;
-		auto loc = base.getWithOffsets(begin, index);
-		return Token.getOperator!s(loc, context.getName(content[begin .. index]));
-	}
+    auto lexOperator(string s)() {
+        uint l = s.length;
+        uint begin = index - l;
+        auto loc = base.getWithOffsets(begin, index);
+        return
+            Token.getOperator!s(loc, context.getName(content[begin .. index]));
+    }
 
     // implementing this to override the implementation from `LexBaseImpl`
-	import source.name;
-	auto lexKeyword(string s)() {
-		enum Type = KeywordMap[s];
-		uint l = s.length;
-		uint begin = index - l;
+    import source.name;
+    auto lexKeyword(string s)() {
+        enum Type = KeywordMap[s];
+        uint l = s.length;
+        uint begin = index - l;
 
-		auto location = base.getWithOffsets(begin, index);
+        auto location = base.getWithOffsets(begin, index);
 
-		if (popIdentifierWithPrefix!s() == 0) {
-			return Token.getKeyword!s(location, context.getName(content[begin .. index]));
-		}
+        if (popIdentifierWithPrefix!s() == 0) {
+            return Token.getKeyword!s(location,
+                                      context.getName(content[begin .. index]));
+        }
 
-		// This is an identifier that happened to start
-		// like a keyword.
-		return Token
-			.getIdentifier(location, context.getName(content[begin .. index]));
-	}
+        // This is an identifier that happened to start
+        // like a keyword.
+        return Token
+            .getIdentifier(location, context.getName(content[begin .. index]));
+    }
 
     import source.name;
 
