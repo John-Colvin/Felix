@@ -9,5 +9,6 @@
         "unit-threaded/subpackages/exception/source",
         "unit-threaded/subpackages/from/source",
         "unit-threaded/subpackages/runner/source"
-    ]
+    ],
+    "d.manyProjectsThreshold": 100
 }
