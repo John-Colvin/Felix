@@ -1,0 +1,13 @@
+{
+    "d.dmdPath": "dlang/ldc/bin/ldmd2",
+    "d.dubPath": "dlang/ldc/bin/dub",
+    "d.neverUseDub": true,
+    "d.projectImportPaths": [
+        "src",
+        "SDC/src",
+        "unit-threaded/subpackages/assertions/source",
+        "unit-threaded/subpackages/exception/source",
+        "unit-threaded/subpackages/from/source",
+        "unit-threaded/subpackages/runner/source"
+    ]
+}
