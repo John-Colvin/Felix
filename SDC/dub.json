@@ -1,0 +1,57 @@
+{
+	"name": "sdc",
+	"description": "The snazzy D compiler. Currently only sdfmt (sdc:sdfmt) and its dependencies are available via dub.",
+	"license": "MIT",
+	"targetType": "none",
+	"subPackages": [
+		{
+			"name": "sdfmt",
+			"targetType": "executable",
+			"targetPath": "bin",
+			"targetName": "sdfmt",
+			"mainSourceFile": "src/driver/sdfmt.d",
+			"sourcePaths": [],
+			"dependencies": {
+				"sdc:format": { "version": "*" },
+				"sdc:config": { "version": "*" }
+			}
+		},
+		{
+			"name": "format",
+			"targetType": "library",
+			"targetPath": "lib",
+			"targetName": "format",
+			"sourcePaths": ["src/format/"],
+			"dependencies": {
+				"sdc:source": { "version": "*" }
+			}
+		},
+		{
+			"name": "config",
+			"targetType": "library",
+			"targetPath": "lib",
+			"targetName": "config",
+			"sourcePaths": ["src/config/"],
+			"dependencies": {
+				"sdc:source": { "version": "*" }
+			}
+		},
+		{
+			"name": "source",
+			"targetType": "library",
+			"targetPath": "lib",
+			"targetName": "source",
+			"sourcePaths": ["src/source/"],
+			"dependencies": {
+				"sdc:util": { "version": "*" }
+			}
+		},
+		{
+			"name": "util",
+			"targetType": "library",
+			"targetPath": "lib",
+			"targetName": "util",
+			"sourcePaths": ["src/util/"]
+		}
+	]
+}
