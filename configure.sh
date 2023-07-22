@@ -14,4 +14,5 @@ bash ./install.sh $D_COMPILER --path .
 ln -sf $D_COMPILER ldc
 popd
 
-./dlang/ldc/bin/reggae --dc `pwd`/dlang/ldc/bin/ldmd2
+#TODO go back to ninja once https://github.com/atilaneves/reggae/issues/194 is resolved
+./dlang/ldc/bin/reggae --dc `pwd`/dlang/ldc/bin/ldmd2 -b make
