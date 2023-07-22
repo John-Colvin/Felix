@@ -7,3 +7,4 @@ test
 .reggae/
 unit-threaded.a
 dlang/
+Makefile
