@@ -5,3 +5,5 @@ compile_commands.json
 rules.ninja
 test
 .reggae/
+unit-threaded.a
+dlang/
