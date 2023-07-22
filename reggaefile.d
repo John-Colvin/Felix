@@ -1,7 +1,7 @@
 import reggae;
 import reggae : options;
 
-enum unitThreadedSourceDirs = [
+enum string[] unitThreadedSourceDirs = [
         "unit-threaded/subpackages/assertions/source",
         "unit-threaded/subpackages/exception/source",
         "unit-threaded/subpackages/from/source",
