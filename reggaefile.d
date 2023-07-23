@@ -32,4 +32,6 @@ auto format() {
     return Target.phony("format", "SDC/bin/sdfmt -i $in", sourcesToTargets!(Sources!(["src"])), sdfmt);
 }
 
-mixin build!(test, unit_threaded, sdfmt, format);
+alias runTest = phony!("runTests", "./test", test);
+
+mixin build!(test, unit_threaded, sdfmt, format, runTest);
